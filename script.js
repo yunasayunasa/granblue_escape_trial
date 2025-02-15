@@ -1,24 +1,11 @@
-alert("JavaScript は読み込まれました！");  // 確認済み
-
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("bed").addEventListener("touchstart", function () {
-        explore("ベッド");
+    console.log("JavaScript 読み込み完了");
+
+    document.getElementById("bed").addEventListener("click", function () {
+        alert("ベッドを調べた！");
     });
-    document.getElementById("caster").addEventListener("touchstart", function () {
-        explore("キャスター");
+
+    document.getElementById("caster").addEventListener("click", function () {
+        alert("キャスターを調べた！");
     });
 });
-
-function explore(item) {
-    alert(item + " を調べた！");
-    let messageBox = document.getElementById("message-box");
-    messageBox.textContent = item + " を調べた！";
-    messageBox.style.display = "block";
-
-    setTimeout(() => {
-        messageBox.style.display = "none";
-    }, 2000);
-}
-
-// 初期ログを表示（ボタンが設定されているか確認）
-console.log("script.js は実行されました！");
