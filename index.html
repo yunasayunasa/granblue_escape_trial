@@ -8,15 +8,22 @@
 </head>
 <body>
   <div id="game-container">
+    <!-- 背景＆透過画像 -->
     <img src="images/bg1.jpg" id="background" alt="背景">
     <img src="images/bg1_bed.png" id="bed" alt="ベッド">
     <img src="images/bg1_caster.png" id="caster" alt="キャスター">
 
-    <!-- ベッド用のオーバーレイ領域（例：緑半透明） -->
+    <!-- ベッド用クリック領域（透明） -->
     <div id="bed-area"></div>
-    <!-- キャスター用のオーバーレイ領域（例：赤半透明） -->
+    <!-- キャスター用クリック領域（透明） -->
     <div id="caster-area"></div>
   </div>
+
+  <!-- ヒントやメッセージを表示する領域 -->
+  <div id="hint-box">タップして調べよう</div>
+
+  <!-- 部屋から出るボタン（右下） -->
+  <button id="exit-button">部屋から出る</button>
 
   <script src="script.js" defer></script>
 </body>
