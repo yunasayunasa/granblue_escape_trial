@@ -5,11 +5,13 @@
   box-sizing: border-box;
 }
 
+/* 背景色（任意） */
 body {
-  background-color: #aef;
+  background-color: #eee;
+  font-family: sans-serif;
 }
 
-/* コンテナ */
+/* ゲームコンテナ */
 #game-container {
   position: relative;
   width: 100vw;
@@ -17,7 +19,7 @@ body {
   overflow: hidden;
 }
 
-/* 背景画像など(省略) */
+/* 背景画像＆透過画像を画面中央に表示 */
 #background,
 #bed,
 #caster {
@@ -30,7 +32,8 @@ body {
   object-fit: contain;
 }
 
-/* ベッドの光っている部分用(例) */
+/* ベッドのクリック領域 */
+/* ベッドの光っている部分用（クリック領域） */
 #bed-area {
   position: absolute;
   top: 50%;    /* 値は適宜調整 */
@@ -38,13 +41,11 @@ body {
   width: 45%;  /* 値は適宜調整 */
   height: 10%; /* 値は適宜調整 */
   z-index: 999;
-
-  /* デバッグ用に半透明色を付けて確認（緑） */
-  background: rgba(0, 255, 0, 0.3);
+  background: transparent; /* 透明に設定 */
   cursor: pointer;
 }
 
-/* キャスターの光っている部分用(例) */
+/* キャスターの光っている部分用（クリック領域） */
 #caster-area {
   position: absolute;
   top: 50%;
@@ -52,8 +53,30 @@ body {
   width: 20%;
   height: 10%;
   z-index: 999;
-
-  /* デバッグ用に半透明色を付けて確認（赤） */
-  background: rgba(255, 0, 0, 0.3);
+  background: transparent; /* 透明に設定 */
   cursor: pointer;
+}
+
+/* ヒント表示用のボックス */
+#hint-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* 部屋から出るボタン（右下に固定） */
+#exit-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1000;
 }
