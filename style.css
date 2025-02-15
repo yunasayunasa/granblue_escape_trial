@@ -33,9 +33,9 @@ body {
 /* ベッドの光っている部分用(例) */
 #bed-area {
   position: absolute;
-  top: 55%;    /* 値は適宜調整 */
-  left: 55%;   /* 値は適宜調整 */
-  width: 40%;  /* 値は適宜調整 */
+  top: 50%;    /* 値は適宜調整 */
+  left: 45%;   /* 値は適宜調整 */
+  width: 45%;  /* 値は適宜調整 */
   height: 10%; /* 値は適宜調整 */
   z-index: 999;
 
@@ -47,8 +47,8 @@ body {
 /* キャスターの光っている部分用(例) */
 #caster-area {
   position: absolute;
-  top: 60%;
-  left: 20%;
+  top: 50%;
+  left: 15%;
   width: 20%;
   height: 10%;
   z-index: 999;
