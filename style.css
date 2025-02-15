@@ -1,10 +1,10 @@
 /* ゲームコンテナ（背景の元画像と同じサイズで固定） */
 #game-container {
     position: relative;
-    width: 100vw;  /* 画面幅いっぱいに */
-    height: calc(100vw * (415 / 739)); /* アスペクト比を維持 */
+    width: 100vw;
+    height: 100vh; /* 画面の高さにフィット */
     margin: auto;
-    overflow: visible; /* 画面外に出ても表示 */
+    overflow: hidden; /* 余計なスペースを削除 */
 }
 
 /* 背景画像を #game-container にフィットさせる */
@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 画像が縮小されないようにする */
+    object-fit: contain;
     z-index: 0;
 }
 
@@ -22,19 +22,26 @@
 .selectable {
     position: absolute;
     cursor: pointer;
-    z-index: 10; /* 背景より前に */
+    z-index: 10;
+    animation: glow 2s infinite alternate; /* 光るエフェクト */
 }
 
 /* ベッドの位置とサイズ（背景の元画像の比率で配置） */
 #bed {
-    top: calc(100vw * (180 / 739));  /* 背景の元の座標をvw比率に変換 */
+    top: calc(100vw * (180 / 739));  
     left: calc(100vw * (250 / 739));
-    width: calc(100vh * (200 / 415)); /* 高さに合わせて拡大縮小 */
+    width: calc(100vw * (200 / 739)); /* 背景の幅基準でスケール */
 }
 
 /* キャスターの位置とサイズ（背景の元画像の比率で配置） */
 #caster {
-    top: calc(100vw * (320 / 739));  /* 位置調整 */
-    left: calc(100vw * (580 / 739)); /* 位置調整 */
-    width: calc(100vh * (50 / 415)); /* 高さに合わせて拡大縮小 */
+    top: calc(100vw * (300 / 739));  
+    left: calc(100vw * (500 / 739)); /* 位置微調整 */
+    width: calc(100vw * (50 / 739)); /* 背景の幅基準でサイズ調整 */
+}
+
+/* 光るエフェクト */
+@keyframes glow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5); }
 }
