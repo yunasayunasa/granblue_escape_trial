@@ -1,7 +1,3 @@
-/* 例：style.css の先頭で */
-body {
-  background-color: pink !important;
-}
 
 
 /* リセット */
@@ -12,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #fff;
+  background-color: #aaa;
 }
 
 /* コンテナ */
