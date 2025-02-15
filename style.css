@@ -1,59 +1,71 @@
-/* ゲームコンテナのサイズを修正 */
-#game-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* デフォルトリセット（任意） */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 背景画像を #game-container にフィット */
+/* 背景色（デバッグ用） */
+body {
+  background-color: red;
+  margin: 0;
+  padding: 0;
+}
+
+/* ゲームコンテナ */
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景画像を横長でも切れにくくする設定 */
 #background {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 100%;
-    max-width: 100vw;
-    max-height: 100vh;
-    object-fit: contain; /* 画像が切れないように調整 */
-    z-index: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 画像の中央をコンテナの中央に合わせる */
+  transform: translate(-50%, -50%);
+  
+  width: 100%;
+  height: auto;
+  
+  /* 画像が収まるようにする */
+  max-width: 100vw;
+  max-height: 100vh;
+  
+  object-fit: contain; /* 縦横比を保って全体が収まるよう表示 */
+  z-index: 0;
 }
 
 /* クリック可能な小物オブジェクト */
 .selectable {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* ベッドの位置とサイズ */
 #bed {
-    position: absolute;
-    top: 24%;
-    left: 35%;
-    width: 27%;
-    height: auto;
-    transform-origin: top left;
-    animation: glow 2s infinite alternate;
+  top: 24%;
+  left: 35%;
+  width: 27%;
+  height: auto;
+  animation: glow 2s infinite alternate;
 }
 
 /* キャスターの位置とサイズ */
 #caster {
-    position: absolute;
-    top: 45%;
-    left: 72%;
-    width: 10%;
-    height: auto;
-    transform-origin: top left;
-    animation: glow 2s infinite alternate;
+  top: 45%;
+  left: 72%;
+  width: 10%;
+  height: auto;
+  animation: glow 2s infinite alternate;
 }
 
 /* 光るエフェクト */
 @keyframes glow {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.5); }
+  0%   { filter: brightness(1); }
+  100% { filter: brightness(1.5); }
 }
