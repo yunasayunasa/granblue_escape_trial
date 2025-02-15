@@ -91,7 +91,7 @@ body {
 /* ヒント表示ボックス（背景画像下部に重ねる） */
 #hint-box {
   position: absolute;
-  bottom: 5%; /* 画像の下部あたりに配置 */
+  bottom: 30%; /* 画像の下部あたりに配置 */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
@@ -105,7 +105,7 @@ body {
 /* 部屋から出るボタン（画像の右上に重ねる） */
 #exit-button {
   position: absolute;
-  top: 5%;
+  top: 30%;
   right: 5%;
   z-index: 1000;
   padding: 8px 12px;
