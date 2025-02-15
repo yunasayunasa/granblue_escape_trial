@@ -1,13 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  // デバッグ用
   console.log("JavaScript 読み込み完了");
 
-  // ベッドをタップしたら
-  document.getElementById("bed").addEventListener("click", function () {
-    alert("ベッドを調べた！");
-  });
-
-  // キャスターをタップしたら
-  document.getElementById("caster").addEventListener("click", function () {
+  // クリック領域を押したら
+  const casterArea = document.getElementById("caster-area");
+  casterArea.addEventListener("click", () => {
     alert("キャスターを調べた！");
   });
 });
