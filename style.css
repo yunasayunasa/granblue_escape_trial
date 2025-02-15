@@ -1,34 +1,32 @@
-/* ゲームコンテナ（背景の元画像と同じサイズで固定） */
+/* ゲームコンテナのサイズを修正 */
 #game-container {
     position: relative;
     width: 100vw;
-    height: auto;
-    max-width: 739px;
+    height: 100vh; /* 背景の高さを固定 */
     margin: auto;
     overflow: hidden;
 }
 
-/* 背景画像を #game-container にフィットさせる */
+/* 背景画像を #game-container にフィット */
 #background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     z-index: 0;
 }
 
-/* クリック可能な小物オブジェクト（共通設定） */
+/* クリック可能な小物オブジェクト */
 .selectable {
     position: absolute;
     cursor: pointer;
     z-index: 10;
 }
 
-/* ベッドの位置とサイズ（背景の元画像の比率で配置） */
+/* ベッドの位置とサイズ */
 #bed {
-    position: absolute;
     top: 180px;
     left: 250px;
     width: 200px;
@@ -38,9 +36,8 @@
     animation: glow 2s infinite alternate; /* 光るエフェクト */
 }
 
-/* キャスターの位置とサイズ（背景の元画像の比率で配置） */
+/* キャスターの位置とサイズ */
 #caster {
-    position: absolute;
     top: 300px;
     left: 500px;
     width: 50px;
