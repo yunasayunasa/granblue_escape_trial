@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     hintBox.textContent = "キャスターに妙な跡がある…";
   });
 
-  // 部屋から出るボタンを押したとき → 最後の謎解きへ
+  // 部屋から出るボタン → 最後の謎解きへ
   exitButton.addEventListener("click", () => {
     hintBox.textContent = "最後の謎：ドアを開ける暗号を入力せよ！";
-    // ここでモーダルを表示したり、別の画面に遷移させたりなど自由にアレンジ
+    // 必要に応じて、別ページに飛ばす、モーダルを表示する等の処理を追加
   });
 });
