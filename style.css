@@ -24,12 +24,14 @@ body {
     height: auto;
 }
 
-/* 小物（ベッド・キャスター） */
+/* クリック可能な小物オブジェクト */
 .selectable {
     position: absolute;
-    transition: filter 0.5s ease-in-out;
-    animation: glow 2s infinite alternate; /* ゆっくり光る */
     cursor: pointer;
+    width: auto;
+    max-width: 100px; /* 大きさを適当に調整 */
+    transition: filter 0.5s ease-in-out;
+    animation: glow 2s infinite alternate;
 }
 
 /* ゆっくり光るアニメーション */
