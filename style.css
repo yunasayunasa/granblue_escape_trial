@@ -29,7 +29,8 @@ body {
 }
 
 /* クリック可能なオブジェクト（PNG） */
-.selectable {
+ .selectable {
+    border: 2px solid red; /* クリック範囲を可視化 */
     position: absolute;
     cursor: pointer;
     width: auto;
