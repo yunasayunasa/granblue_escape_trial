@@ -2,9 +2,9 @@
 #game-container {
     position: relative;
     width: 100vw;  /* 画面幅いっぱいに */
-    height: calc(100vw * (415 / 739)); /* アスペクト比を維持（背景画像の高さ比率） */
+    height: calc(100vw * (415 / 739)); /* アスペクト比を維持 */
     margin: auto;
-    overflow: hidden;
+    overflow: visible; /* 画面外に出ても表示 */
 }
 
 /* 背景画像を #game-container にフィットさせる */
@@ -29,12 +29,12 @@
 #bed {
     top: calc(100vw * (180 / 739));  /* 背景の元の座標をvw比率に変換 */
     left: calc(100vw * (250 / 739));
-    width: calc(100vw * (200 / 739)); /* 元の比率でサイズ調整 */
+    width: calc(100vh * (200 / 415)); /* 高さに合わせて拡大縮小 */
 }
 
 /* キャスターの位置とサイズ（背景の元画像の比率で配置） */
 #caster {
-    top: calc(100vw * (300 / 739));
-    left: calc(100vw * (600 / 739));
-    width: calc(100vw * (50 / 739));
+    top: calc(100vw * (320 / 739));  /* 位置調整 */
+    left: calc(100vw * (580 / 739)); /* 位置調整 */
+    width: calc(100vh * (50 / 415)); /* 高さに合わせて拡大縮小 */
 }
