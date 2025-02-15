@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-   <style>
-:root {
-    --scale-factor: calc(100vw / 739); /* 画面幅に応じたスケール */
-}
-</style>
-    <script>
-    alert("CSS は適用されていますか？");
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>脱出ゲーム</title>
-   <link rel="stylesheet" href="./style.css">
 
+    <!-- 背景サイズのスケールを定義 -->
+    <style>
+        :root {
+            --scale-factor: calc(100vw / 739); /* 画面幅に応じたスケール */
+        }
+    </style>
+
+    <!-- CSS 読み込み -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- デバッグ用アラート -->
+    <script>
+        alert("CSS は適用されていますか？");
+    </script>
 </head>
 <body>
 
-    <!-- 背景画像 -->
-   <div id="game-container">
-    <img src="images/bg1.jpg" id="background">
-    <img src="images/bg1_bed.png" class="selectable" id="bed">
-    <img src="images/bg1_caster.png" class="selectable" id="caster">
-</div>
+    <!-- ゲームコンテナ -->
+    <div id="game-container">
+        <img src="/images/bg1.jpg" id="background" alt="背景">
+        <img src="/images/bg1_bed.png" class="selectable" id="bed" alt="ベッド">
+        <img src="/images/bg1_caster.png" class="selectable" id="caster" alt="キャスター">
+    </div>
 
     <!-- メッセージ表示 -->
     <div id="message-box">タップして調べよう</div>
 
-    <script src="./script.js" defer></script>
+    <!-- JavaScript 読み込み -->
+    <script src="script.js" defer></script>
+
 </body>
 </html>
