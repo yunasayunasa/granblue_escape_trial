@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>脱出ゲーム</title>
   
-  <!-- デバッグ用のアラート -->
+  <!-- デバッグ用のアラート（不要なら削除OK） -->
   <script>
     alert("CSS は適用されていますか？");
   </script>
@@ -16,8 +16,11 @@
 <body>
   <!-- ゲームコンテナ -->
   <div id="game-container">
+    <!-- 背景画像 -->
     <img src="images/bg1.jpg" id="background" alt="背景">
+    <!-- 透過ベッド画像（背景と同じサイズ） -->
     <img src="images/bg1_bed.png" class="selectable" id="bed" alt="ベッド">
+    <!-- 透過キャスター画像（背景と同じサイズ） -->
     <img src="images/bg1_caster.png" class="selectable" id="caster" alt="キャスター">
   </div>
 
