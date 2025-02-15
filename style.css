@@ -34,7 +34,7 @@ body {
 #bed-area {
   position: absolute;
   top: 50%;    /* 値は適宜調整 */
-  left: 45%;   /* 値は適宜調整 */
+  left: 40%;   /* 値は適宜調整 */
   width: 45%;  /* 値は適宜調整 */
   height: 10%; /* 値は適宜調整 */
   z-index: 999;
