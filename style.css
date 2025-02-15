@@ -18,20 +18,25 @@ body {
     overflow: hidden;
 }
 
-/* 背景画像 */
+/* 背景画像を最背面に配置 */
 #background {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: auto;
+    z-index: 0; /* 背景を一番後ろに */
 }
 
-/* クリック可能な小物オブジェクト */
+/* クリック可能なオブジェクト（PNG） */
 .selectable {
     position: absolute;
     cursor: pointer;
     width: auto;
-    max-width: 100px; /* 大きさを適当に調整 */
+    max-width: 100px; /* サイズを適当に調整 */
     transition: filter 0.5s ease-in-out;
     animation: glow 2s infinite alternate;
+    z-index: 10; /* PNGを前面に */
 }
 
 /* ゆっくり光るアニメーション */
