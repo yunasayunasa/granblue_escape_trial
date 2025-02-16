@@ -39,6 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
     passwordInput.value = "";
   });
 
+  // 謎解きモーダル内で、モーダル外をクリックしたら閉じる（ヒント画面に戻る）
+  exitModal.addEventListener("click", (event) => {
+    if (event.target === exitModal) {
+      exitModal.style.display = "none";
+    }
+  });
+
   // 「鍵を開ける」ボタン押下時のパスワードチェック
   passwordSubmit.addEventListener("click", () => {
     const input = passwordInput.value.trim();
