@@ -6,19 +6,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const casterArea = document.getElementById("caster-area");
   const exitButton = document.getElementById("exit-button");
 
-  // ベッドを調べたときのイベント
+  // モーダル関連の要素
+  const hintModal = document.getElementById("hint-modal");
+  const hintImage = document.getElementById("hint-image");
+  const exitModal = document.getElementById("exit-modal");
+  const passwordInput = document.getElementById("password-input");
+  const passwordSubmit = document.getElementById("password-submit");
+
+  // ベッド領域クリックでヒント画像（bg1_hint1.jpg）を表示
   bedArea.addEventListener("click", () => {
+    hintImage.src = "images/bg1_hint1.jpg";
+    hintModal.style.display = "flex";
     hintBox.textContent = "ベッドには何かが隠されているようだ…";
   });
 
-  // キャスターを調べたときのイベント
+  // キャスター領域クリックでヒント画像（bg1_hint2.jpg）を表示
   casterArea.addEventListener("click", () => {
+    hintImage.src = "images/bg1_hint2.jpg";
+    hintModal.style.display = "flex";
     hintBox.textContent = "キャスターに妙な跡がある…";
   });
 
-  // 部屋から出るボタン → 最後の謎解きへ
+  // ヒントモーダルをクリックすると閉じる
+  hintModal.addEventListener("click", () => {
+    hintModal.style.display = "none";
+  });
+
+  // 部屋から出るボタンをクリックすると、謎解きモーダル（bg1_exit.jpgとパスワード入力）を表示
   exitButton.addEventListener("click", () => {
-    hintBox.textContent = "最後の謎：ドアを開ける暗号を入力せよ！";
-    // 必要に応じて、別ページに飛ばす、モーダルを表示する等の処理を追加
+    exitModal.style.display = "flex";
+    hintBox.textContent = "";
+    passwordInput.value = "";
+  });
+
+  // 「鍵を開ける」ボタン押下時のパスワードチェック
+  passwordSubmit.addEventListener("click", () => {
+    const input = passwordInput.value.trim();
+    const correctPassword = "4593";
+    // 入力が4桁の数字かどうかチェック
+    if (/^\d{4}$/.test(input)) {
+      if (input === correctPassword) {
+        console.log("鍵が開いた！");
+        alert("鍵が開いた！");
+        exitModal.style.display = "none";
+      } else {
+        console.log("間違っているようだ...");
+        alert("間違っているようだ...");
+        passwordInput.value = "";
+      }
+    } else {
+      console.log("間違っているようだ...");
+      alert("間違っているようだ...");
+      passwordInput.value = "";
+    }
   });
 });
