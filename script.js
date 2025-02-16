@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   bedArea.addEventListener("click", () => {
     hintImage.src = "images/bg1_hint1.jpg";
     hintModal.style.display = "flex";
-    hintBox.textContent = "ベッドには何かが隠されているようだ…";
+    hintBox.textContent = "ベッドには謎の紙片が残されている…";
   });
 
   // キャスター領域クリックでヒント画像（bg1_hint2.jpg）を表示
