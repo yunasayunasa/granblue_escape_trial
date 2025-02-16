@@ -103,7 +103,7 @@ body {
 /* 部屋から出るボタン（背景右上） */
 #exit-button {
   position: absolute;
-  top: 20%;
+  top: 28%;
   right: 5%;
   z-index: 1000;
   padding: 8px 12px;
