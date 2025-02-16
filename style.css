@@ -36,7 +36,7 @@ body {
   100% { filter: brightness(1.5); }
 }
 
-/* ベッド画像（すぐ光る） */
+/* ベッド画像（すぐに光る） */
 #bed {
   position: absolute;
   top: 50%;
@@ -63,7 +63,7 @@ body {
   animation-delay: 1s;
 }
 
-/* クリック領域（透明） - 位置は調整済みの例 */
+/* クリック領域（透明） */
 #bed-area {
   position: absolute;
   top: 50%;
