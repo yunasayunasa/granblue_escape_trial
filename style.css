@@ -89,7 +89,7 @@ body {
 /* ヒント表示ボックス（背景下部中央） */
 #hint-box {
   position: absolute;
-  bottom: 5%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
@@ -103,7 +103,7 @@ body {
 /* 部屋から出るボタン（背景右上） */
 #exit-button {
   position: absolute;
-  top: 5%;
+  top: 20%;
   right: 5%;
   z-index: 1000;
   padding: 8px 12px;
