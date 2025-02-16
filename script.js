@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 入力が4桁の数字かどうかチェック
     if (/^\d{4}$/.test(input)) {
       if (input === correctPassword) {
-        console.log("鍵が開いた！");
+        console.log("鍵が開いた！本編は4/1実装予定！お楽しみに！");
         alert("鍵が開いた！");
         exitModal.style.display = "none";
       } else {
