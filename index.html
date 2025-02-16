@@ -13,16 +13,30 @@
     <img src="images/bg1_bed.png" id="bed" alt="ベッド">
     <img src="images/bg1_caster.png" id="caster" alt="キャスター">
 
-    <!-- ベッド用クリック領域（透明） -->
+    <!-- クリック領域（透明） -->
     <div id="bed-area"></div>
-    <!-- キャスター用クリック領域（透明） -->
     <div id="caster-area"></div>
 
-    <!-- ヒント表示ボックス（背景画像内の下部にオーバーレイ） -->
+    <!-- ヒント表示ボックス（背景下部にオーバーレイ） -->
     <div id="hint-box">タップして調べよう</div>
 
-    <!-- 部屋から出るボタン（背景画像右上あたりにオーバーレイ） -->
+    <!-- 部屋から出るボタン（背景右上にオーバーレイ） -->
     <button id="exit-button">部屋から出る</button>
+  </div>
+
+  <!-- ヒントモーダル（クリックで閉じる） -->
+  <div id="hint-modal" class="modal">
+    <img id="hint-image" src="" alt="ヒント">
+  </div>
+
+  <!-- 謎解きモーダル -->
+  <div id="exit-modal" class="modal">
+    <div class="modal-content">
+      <img id="exit-image" src="images/bg1_exit.jpg" alt="謎解き">
+      <p>4桁の数字を入力してください：</p>
+      <input type="text" id="password-input" maxlength="4">
+      <button id="password-submit">鍵を開ける</button>
+    </div>
   </div>
 
   <script src="script.js" defer></script>
