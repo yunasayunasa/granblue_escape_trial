@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (/^\d{4}$/.test(input)) {
       if (input === correctPassword) {
         console.log("鍵が開いた！本編は4/1実装予定！お楽しみに！");
-        alert("鍵が開いた！本編は4/1実装予定！お楽しみに！");
+        alert("鍵が開いた！<br>本編は4/1実装予定！お楽しみに！");
         exitModal.style.display = "none";
       } else {
         console.log("間違っているようだ...");
