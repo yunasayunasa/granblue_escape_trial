@@ -46,7 +46,6 @@ body {
 #narration-screen {
   z-index: 100;
 }
-/* エリア背景（横長） */
 .narration-background {
   position: absolute;
   top: 0;
@@ -56,27 +55,24 @@ body {
   object-fit: cover;
   z-index: 1;
 }
-/* キャラクター（背景と会話フレームの間） */
 .narration-character {
   position: absolute;
-  bottom: -40%;  /* 調整可 */
+  bottom: -40%; /* 調整可 */
   left: 50%;
   transform: translateX(-50%);
   height: 150%;
   width: auto;
   z-index: 2;
 }
-/* 会話フレーム（縦長） */
 .narration-frame {
   position: absolute;
-  bottom: -10;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: auto;
   z-index: 3;
 }
-/* 会話テキスト（最上層） */
 .narration-text {
   position: absolute;
   bottom: 10%;
@@ -99,7 +95,6 @@ body {
   width: 100%;
   height: 100%;
 }
-/* 背景画像 */
 #game-container #background {
   position: absolute;
   top: 50%;
@@ -110,14 +105,10 @@ body {
   object-fit: contain;
   z-index: 0;
 }
-
-/* 光るアニメーション */
 @keyframes glow {
   0%   { filter: brightness(1); }
   100% { filter: brightness(1.5); }
 }
-
-/* ベッド画像 */
 #bed {
   position: absolute;
   top: 50%;
@@ -129,7 +120,6 @@ body {
   z-index: 1;
   animation: glow 2s infinite alternate;
 }
-/* キャスター画像 */
 #caster {
   position: absolute;
   top: 50%;
@@ -142,8 +132,6 @@ body {
   animation: glow 2s infinite alternate;
   animation-delay: 1s;
 }
-
-/* クリック領域（透明） */
 #bed-area,
 #caster-area {
   position: absolute;
@@ -163,8 +151,6 @@ body {
   width: 20%;
   height: 10%;
 }
-
-/* ヒント表示ボックス（背景下部中央） */
 #hint-box {
   position: absolute;
   bottom: 20%;
@@ -177,8 +163,6 @@ body {
   font-size: 1.2rem;
   z-index: 1000;
 }
-
-/* 部屋から出るボタン（背景右上） */
 #exit-button {
   position: absolute;
   top: 28%;
@@ -189,7 +173,7 @@ body {
   cursor: pointer;
 }
 
-/* モーダル共通 */
+/* モーダル */
 .modal {
   display: none;
   position: fixed;
@@ -232,15 +216,3 @@ body {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-
-/* オーバーレイのフェードアウトアニメーション */
-.fade-out {
-  animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* ※ ここからはシーン切替用など、後で拡張しやすい共通設定として利用 */
