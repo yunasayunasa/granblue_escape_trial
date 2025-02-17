@@ -10,23 +10,26 @@
   <!-- タイトル画面 -->
   <div id="title-screen" class="scene">
     <!-- タイトル用背景画像（素材はお好みのものに変更してください） -->
-    <img src="images/title_bg.jpg" alt="タイトル背景" class="background">
+    <img src="images/title.jpg" alt="タイトル背景" class="background">
     <div class="overlay">
-      <h1>脱出ゲーム</h1>
-      <p>画面をタップしてスタート</p>
+      <h1>GRANBLUE ESCAPE</h1>
+      <p>画面をタップしてスタート!</p>
     </div>
   </div>
 
-  <!-- ナレーション画面（シナリオ進行用） -->
-  <div id="narration-screen" class="scene" style="display:none;">
-    <!-- ナレーション用背景画像 -->
-    <img src="images/narration_bg.jpg" alt="ナレーション背景" class="background">
-    <div class="overlay" id="narration-content">
-      <p>君は目を覚ますと、自分の部屋にいた…</p>
-      <p>画面をタップして次へ</p>
-    </div>
+ <!-- ナレーションシーン（シナリオ進行画面） -->
+<div id="narration-screen" class="scene" style="display:none;">
+  <!-- エリア背景画像（横長素材） -->
+  <img src="images/bg1.jpg" alt="背景" class="narration-background">
+  <!-- キャラクター画像（会話フレームと背景の間） -->
+  <img src="images/gran.png" alt="キャラクター" class="narration-character">
+  <!-- 会話フレーム（縦長素材） -->
+  <img src="images/log.png" alt="会話フレーム" class="narration-frame">
+  <!-- 会話テキスト（会話フレームの上に表示） -->
+  <div class="narration-text">
+    <p>君は目を覚ますと、自分の部屋にいた…</p>
   </div>
-
+</div>
   <!-- ゲーム画面（既存の脱出ゲーム部分） -->
   <div id="game-screen" class="scene" style="display:none;">
     <div id="game-container">
