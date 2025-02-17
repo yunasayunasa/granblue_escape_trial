@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("JavaScript 読み込み完了");
 
-  // ★ シーン管理用
+  // ★ シーン管理用 ★
   const scenes = document.querySelectorAll('.scene');
   const titleScreen = document.getElementById("title-screen");
   const narrationScreen = document.getElementById("narration-screen");
@@ -14,19 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(sceneId).style.display = "block";
   }
 
-  // 転換関数（シーン切替前に暗転演出を行う）
+  // 転換関数（setTimeout を利用）
   function transitionToScene(newSceneId) {
     const overlay = document.getElementById("transition-overlay");
-    overlay.style.opacity = 1; // 不透明にする
+    overlay.style.opacity = 1; // オーバーレイを不透明に
     overlay.classList.add("fade-out");
-    overlay.addEventListener("animationend", function handler() {
+    // 1秒後にシーン切替（アニメーションと同じ時間）
+    setTimeout(() => {
       overlay.classList.remove("fade-out");
       showScene(newSceneId);
-      overlay.removeEventListener("animationend", handler);
-    });
+    }, 1000);
   }
 
-  // 初期はタイトル画面
+  // 初期シーン：タイトル画面
   showScene("title-screen");
 
   // タイトル画面タップでナレーションシーンへ
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     transitionToScene("narration-screen");
   });
 
-  // ★ ナレーションシーンの進行
+  // ★ ナレーションシーンの進行 ★
   const narrationTexts = [
     "君は目を覚ますと、自分の部屋にいた…",
     "部屋から出ようとするが、鍵がかかっている…",
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ★ ゲーム進行部分
+  // ★ ゲーム進行部分 ★
   const hintBox = document.getElementById("hint-box");
   const bedArea = document.getElementById("bed-area");
   const casterArea = document.getElementById("caster-area");
