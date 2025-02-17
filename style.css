@@ -213,4 +213,27 @@ body {
   text-align: center;
 }
 
+/* 画面転換用オーバーレイ */
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  z-index: 3000;
+  pointer-events: none; /* ユーザーのクリックは通さない */
+}
+
+/* オーバーレイのフェードアウトアニメーション */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 /* ※ ここからはシーン切替用など、後で拡張しやすい共通設定として利用 */
