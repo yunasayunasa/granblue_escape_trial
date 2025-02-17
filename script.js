@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   narrationScreen.addEventListener("click", () => {
     narrationIndex++;
     if(narrationIndex < narrationTexts.length) {
-      narrationContent.innerHTML = `<p>${narrationTexts[narrationIndex]}</p><p>画面をタップして次へ</p>`;
+      narrationContent.innerHTML = `<p>${narrationTexts[narrationIndex]}</p>`;
     } else {
       showScene("game-screen");
     }
