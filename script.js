@@ -1,76 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("JavaScript 読み込み完了");
 
-  // ★ シーン管理用要素 ★
+  // ★ シーン管理用
   const scenes = document.querySelectorAll('.scene');
   const titleScreen = document.getElementById("title-screen");
   const narrationScreen = document.getElementById("narration-screen");
-  const narrationContent = document.getElementById("narration-content");
   const gameScreen = document.getElementById("game-screen");
+  const narrationContent = document.getElementById("narration-content");
 
-  // シーンを一括で非表示にし、指定したシーンのみ表示する関数
+  // シーン表示関数：全シーン非表示→指定IDのみ表示
   function showScene(sceneId) {
-    scenes.forEach(scene => {
-      scene.style.display = "none";
-    });
+    scenes.forEach(scene => scene.style.display = "none");
     document.getElementById(sceneId).style.display = "block";
   }
 
-  // 最初はタイトル画面を表示
+  // 初期はタイトル画面
   showScene("title-screen");
 
-  // タイトル画面をタップしたらナレーション画面へ
+  // タイトル画面タップでナレーションシーンへ
   titleScreen.addEventListener("click", () => {
     showScene("narration-screen");
   });
 
-  // ★ ナレーションシーンの進行 ★
-  // ナレーションテキストの配列
+  // ★ ナレーションシーンの進行
   const narrationTexts = [
     "君は目を覚ますと、自分の部屋にいた…",
     "部屋から出ようとするが、鍵がかかっている…",
     "どうやらこの鍵を開けないと出られないようだ。"
   ];
   let narrationIndex = 0;
-  // 初期表示
-  narrationContent.innerHTML = `<p>${narrationTexts[narrationIndex]}</p><p>画面をタップして次へ</p>`;
-
-  // ナレーション画面のタップでテキストを進行
+  // 初回表示はすでにHTMLにあるので（最初の文）、次回以降で進める
   narrationScreen.addEventListener("click", () => {
     narrationIndex++;
-    if(narrationIndex < narrationTexts.length){
+    if(narrationIndex < narrationTexts.length) {
       narrationContent.innerHTML = `<p>${narrationTexts[narrationIndex]}</p><p>画面をタップして次へ</p>`;
     } else {
-      // 全文表示し終えたらゲーム画面へ
       showScene("game-screen");
     }
   });
 
-
   // ★ 以下は既存のゲーム進行部分 ★
-
-  // ゲーム画面用要素
   const hintBox = document.getElementById("hint-box");
   const bedArea = document.getElementById("bed-area");
   const casterArea = document.getElementById("caster-area");
   const exitButton = document.getElementById("exit-button");
 
-  // モーダル関連
+  // モーダル要素
   const hintModal = document.getElementById("hint-modal");
   const hintImage = document.getElementById("hint-image");
   const exitModal = document.getElementById("exit-modal");
   const passwordInput = document.getElementById("password-input");
   const passwordSubmit = document.getElementById("password-submit");
 
-  // ベッド領域クリック：ヒント画像 bg1_hint1.jpg を表示
+  // ベッド領域クリック：ヒント画像 bg1_hint1.jpg 表示
   bedArea.addEventListener("click", (e) => {
-    e.stopPropagation();  // シーン切替のイベントに干渉しないように
+    e.stopPropagation();
     hintImage.src = "images/bg1_hint1.jpg";
     hintModal.style.display = "flex";
     hintBox.textContent = "ベッドには謎の紙片が残されている…";
   });
 
-  // キャスター領域クリック：ヒント画像 bg1_hint2.jpg を表示
+  // キャスター領域クリック：ヒント画像 bg1_hint2.jpg 表示
   casterArea.addEventListener("click", (e) => {
     e.stopPropagation();
     hintImage.src = "images/bg1_hint2.jpg";
@@ -78,12 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hintBox.textContent = "キャスターに妙な跡がある…";
   });
 
-  // ヒントモーダルをクリックすると閉じる
+  // ヒントモーダルクリックで閉じる
   hintModal.addEventListener("click", () => {
     hintModal.style.display = "none";
   });
 
-  // 部屋から出るボタン：謎解きモーダルを表示
+  // 部屋から出るボタンクリックで、謎解きモーダル表示
   exitButton.addEventListener("click", (e) => {
     e.stopPropagation();
     exitModal.style.display = "flex";
@@ -91,19 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
     passwordInput.value = "";
   });
 
-  // 謎解きモーダル外部をクリックすると閉じる（入力画面外ならモーダルを閉じる）
+  // 謎解きモーダル外（オーバーレイ部分）クリックで閉じる
   exitModal.addEventListener("click", (event) => {
-    if (event.target === exitModal) {
+    if(event.target === exitModal) {
       exitModal.style.display = "none";
     }
   });
 
-  // 「鍵を開ける」ボタンのパスワードチェック
+  // 「鍵を開ける」ボタン押下でパスワードチェック
   passwordSubmit.addEventListener("click", () => {
     const input = passwordInput.value.trim();
     const correctPassword = "4593";
     if (/^\d{4}$/.test(input)) {
-      if (input === correctPassword) {
+      if(input === correctPassword) {
         console.log("鍵が開いた！本編は4/1実装予定！お楽しみに！");
         alert("鍵が開いた！\n本編は4/1実装予定！お楽しみに！");
         exitModal.style.display = "none";
