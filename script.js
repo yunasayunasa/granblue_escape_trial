@@ -109,3 +109,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// シーン切替前に転換オーバーレイを表示してフェードアウトさせる関数
+function transitionToScene(newSceneId) {
+  const overlay = document.getElementById("transition-overlay");
+  overlay.style.opacity = 1;  // オーバーレイを不透明に
+  overlay.classList.add("fade-out");
+  
+  // フェードアウトのアニメーションが終わった後にシーンを切り替える
+  overlay.addEventListener("animationend", function handler() {
+    overlay.classList.remove("fade-out");
+    showScene(newSceneId);  // 既存のシーン切替関数を呼び出す
+    overlay.removeEventListener("animationend", handler);
+  });
+}
