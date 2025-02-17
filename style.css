@@ -60,7 +60,7 @@ body {
   bottom: -40%; /* 必要に応じて調整 */
   left: 50%;
   transform: translateX(-50%);
-  height: 150%;  /* キャラの大きさ */
+  height: 150%;
   width: auto;
   z-index: 2;
 }
