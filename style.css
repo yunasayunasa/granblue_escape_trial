@@ -10,16 +10,97 @@ body {
   font-family: sans-serif;
 }
 
-/* ゲームコンテナ：画面全体 */
-#game-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+/* 共通：シーン全体 */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
+/* タイトル画面 */
+#title-screen {
+  z-index: 100;
+}
+#title-screen .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#title-screen .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* ナレーションシーン */
+#narration-screen {
+  z-index: 100;
+}
+/* エリア背景（横長） */
+.narration-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+/* キャラクター（背景と会話フレームの間） */
+.narration-character {
+  position: absolute;
+  bottom: 15%;  /* 調整可 */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40%;
+  width: auto;
+  z-index: 2;
+}
+/* 会話フレーム（縦長） */
+.narration-frame {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: auto;
+  z-index: 3;
+}
+/* 会話テキスト（最上層） */
+.narration-text {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 4;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ゲーム画面 */
+#game-screen {
+  z-index: 100;
+}
+#game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 /* 背景画像 */
-#background {
+#game-container #background {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,13 +111,13 @@ body {
   z-index: 0;
 }
 
-/* 共通の光るアニメーション */
+/* 光るアニメーション */
 @keyframes glow {
   0%   { filter: brightness(1); }
   100% { filter: brightness(1.5); }
 }
 
-/* ベッド画像（すぐに光る） */
+/* ベッド画像 */
 #bed {
   position: absolute;
   top: 50%;
@@ -48,8 +129,7 @@ body {
   z-index: 1;
   animation: glow 2s infinite alternate;
 }
-
-/* キャスター画像（1秒遅れで光る） */
+/* キャスター画像 */
 #caster {
   position: absolute;
   top: 50%;
@@ -64,26 +144,24 @@ body {
 }
 
 /* クリック領域（透明） */
-#bed-area {
+#bed-area,
+#caster-area {
   position: absolute;
-  top: 50%;
-  left: 40%;
-  width: 45%;
-  height: 10%;
   z-index: 999;
   background: transparent;
   cursor: pointer;
 }
-
+#bed-area {
+  top: 50%;
+  left: 40%;
+  width: 45%;
+  height: 10%;
+}
 #caster-area {
-  position: absolute;
   top: 50%;
   left: 15%;
   width: 20%;
   height: 10%;
-  z-index: 999;
-  background: transparent;
-  cursor: pointer;
 }
 
 /* ヒント表示ボックス（背景下部中央） */
@@ -92,7 +170,7 @@ body {
   bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   color: #fff;
   padding: 8px 16px;
   border-radius: 8px;
@@ -111,9 +189,9 @@ body {
   cursor: pointer;
 }
 
-/* モーダル共通スタイル */
+/* モーダル共通 */
 .modal {
-  display: none; /* 初期は非表示 */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -124,73 +202,15 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .modal img {
   max-width: 90%;
   max-height: 90%;
 }
-
-/* 謎解きモーダルのコンテンツ */
 .modal .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  
 }
 
-/* ナレーションシーン全体の設定 */
-#narration-screen {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* 背景（最下層） */
-.narration-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* キャラクター画像（背景より上、会話フレームより下） */
-.narration-character {
-  position: absolute;
-  bottom: 15%;       /* ※ お好みで調整 */
-  left: 50%;
-  transform: translateX(-50%);
-  height: 40%;       /* ※ 必要に応じて調整 */
-  width: auto;
-  z-index: 2;
-}
-
-/* 会話フレーム（キャラクターの上に配置） */
-.narration-frame {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;        /* フレームの横幅（素材に合わせて調整） */
-  height: auto;
-  z-index: 3;
-}
-
-/* 会話テキスト（最上層） */
-.narration-text {
-  position: absolute;
-  bottom: 10%;       /* 会話フレーム内での縦位置（調整可） */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  z-index: 4;
-  color: #fff;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 20px;
-  /* 必要に応じてフォントや背景を追加 */
-}
+/* ※ ここからはシーン切替用など、後で拡張しやすい共通設定として利用 */
