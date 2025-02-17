@@ -7,35 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game-container">
-    <!-- 背景＆透過画像 -->
-    <img src="images/bg1.jpg" id="background" alt="背景">
-    <img src="images/bg1_bed.png" id="bed" alt="ベッド">
-    <img src="images/bg1_caster.png" id="caster" alt="キャスター">
-
-    <!-- クリック領域（透明） -->
-    <div id="bed-area"></div>
-    <div id="caster-area"></div>
-
-    <!-- ヒント表示ボックス（背景下部中央） -->
-    <div id="hint-box">タップして調べよう</div>
-
-    <!-- 部屋から出るボタン（背景右上） -->
-    <button id="exit-button">部屋から出る</button>
+  <!-- タイトル画面 -->
+  <div id="title-screen" class="scene">
+    <!-- タイトル用背景画像（素材はお好みのものに変更してください） -->
+    <img src="images/title_bg.jpg" alt="タイトル背景" class="background">
+    <div class="overlay">
+      <h1>脱出ゲーム</h1>
+      <p>画面をタップしてスタート</p>
+    </div>
   </div>
 
-  <!-- ヒントモーダル（クリックで閉じる） -->
-  <div id="hint-modal" class="modal">
-    <img id="hint-image" src="" alt="ヒント">
+  <!-- ナレーション画面（シナリオ進行用） -->
+  <div id="narration-screen" class="scene" style="display:none;">
+    <!-- ナレーション用背景画像 -->
+    <img src="images/narration_bg.jpg" alt="ナレーション背景" class="background">
+    <div class="overlay" id="narration-content">
+      <p>君は目を覚ますと、自分の部屋にいた…</p>
+      <p>画面をタップして次へ</p>
+    </div>
   </div>
 
-  <!-- 謎解きモーダル（パスワード入力画面） -->
-  <div id="exit-modal" class="modal">
-    <div class="modal-content">
-      <img id="exit-image" src="images/bg1_exit.jpg" alt="謎解き">
-      <p>4桁の数字を入力してください：</p>
-      <input type="text" id="password-input" maxlength="4">
-      <button id="password-submit">鍵を開ける</button>
+  <!-- ゲーム画面（既存の脱出ゲーム部分） -->
+  <div id="game-screen" class="scene" style="display:none;">
+    <div id="game-container">
+      <!-- 背景＆透過画像 -->
+      <img src="images/bg1.jpg" id="background" alt="背景">
+      <img src="images/bg1_bed.png" id="bed" alt="ベッド">
+      <img src="images/bg1_caster.png" id="caster" alt="キャスター">
+
+      <!-- クリック領域（透明） -->
+      <div id="bed-area"></div>
+      <div id="caster-area"></div>
+
+      <!-- ヒント表示ボックス（背景下部中央） -->
+      <div id="hint-box">タップして調べよう</div>
+
+      <!-- 部屋から出るボタン（背景右上） -->
+      <button id="exit-button">部屋から出る</button>
+    </div>
+
+    <!-- ヒントモーダル（クリックで閉じる） -->
+    <div id="hint-modal" class="modal">
+      <img id="hint-image" src="" alt="ヒント">
+    </div>
+
+    <!-- 謎解きモーダル（パスワード入力画面） -->
+    <div id="exit-modal" class="modal">
+      <div class="modal-content">
+        <img id="exit-image" src="images/bg1_exit.jpg" alt="謎解き">
+        <p>4桁の数字を入力してください：</p>
+        <input type="text" id="password-input" maxlength="4">
+        <button id="password-submit">鍵を開ける</button>
+      </div>
     </div>
   </div>
 
