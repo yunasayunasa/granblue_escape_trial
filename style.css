@@ -136,4 +136,61 @@ body {
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+  
+}
+
+/* ナレーションシーン全体の設定 */
+#narration-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景（最下層） */
+.narration-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* キャラクター画像（背景より上、会話フレームより下） */
+.narration-character {
+  position: absolute;
+  bottom: 15%;       /* ※ お好みで調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40%;       /* ※ 必要に応じて調整 */
+  width: auto;
+  z-index: 2;
+}
+
+/* 会話フレーム（キャラクターの上に配置） */
+.narration-frame {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;        /* フレームの横幅（素材に合わせて調整） */
+  height: auto;
+  z-index: 3;
+}
+
+/* 会話テキスト（最上層） */
+.narration-text {
+  position: absolute;
+  bottom: 10%;       /* 会話フレーム内での縦位置（調整可） */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 4;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  /* 必要に応じてフォントや背景を追加 */
 }
