@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("JavaScript 読み込み完了");
 
-  // ★ シーン管理用 ★
+  // ★ シーン管理用要素 ★
   const scenes = document.querySelectorAll('.scene');
   const titleScreen = document.getElementById("title-screen");
   const narrationScreen = document.getElementById("narration-screen");
   const gameScreen = document.getElementById("game-screen");
   const narrationContent = document.getElementById("narration-content");
+
+  // フラグ：転換中なら true
+  let isTransitioning = false;
 
   // シーン表示関数
   function showScene(sceneId) {
@@ -14,16 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(sceneId).style.display = "block";
   }
 
-  // 転換関数（setTimeout を利用）
+  // 転換関数（setTimeoutを利用）
   function transitionToScene(newSceneId) {
+    if (isTransitioning) return;  // すでに転換中なら何もしない
+    isTransitioning = true;
     const overlay = document.getElementById("transition-overlay");
     overlay.style.opacity = 1; // オーバーレイを不透明に
     overlay.classList.add("fade-out");
-    // 1秒後にシーン切替（アニメーションと同じ時間）
-    setTimeout(() => {
+
+    // 1秒後にシーン切替（アニメーション時間と合わせる）
+    overlay.addEventListener("animationend", function handler() {
       overlay.classList.remove("fade-out");
       showScene(newSceneId);
-    }, 1000);
+      isTransitioning = false;  // 転換終了
+      overlay.removeEventListener("animationend", handler);
+    });
   }
 
   // 初期シーン：タイトル画面
