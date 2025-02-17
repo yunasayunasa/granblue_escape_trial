@@ -123,3 +123,15 @@ function transitionToScene(newSceneId) {
     overlay.removeEventListener("animationend", handler);
   });
 }
+
+function transitionToScene(newSceneId) {
+  const overlay = document.getElementById("transition-overlay");
+  overlay.style.opacity = 1;  // オーバーレイを不透明に
+  overlay.classList.add("fade-out");
+  
+  overlay.addEventListener("animationend", function handler() {
+    overlay.classList.remove("fade-out");
+    showScene(newSceneId);  // 既存のシーン切替関数を呼び出す
+    overlay.removeEventListener("animationend", handler);
+  });
+}
