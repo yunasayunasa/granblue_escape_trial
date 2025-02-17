@@ -1,48 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("JavaScript 読み込み完了");
 
-  // ★ シーン管理用要素 ★
+  // ★ シーン管理用
   const scenes = document.querySelectorAll('.scene');
   const titleScreen = document.getElementById("title-screen");
   const narrationScreen = document.getElementById("narration-screen");
   const gameScreen = document.getElementById("game-screen");
   const narrationContent = document.getElementById("narration-content");
 
-  // フラグ：転換中なら true
-  let isTransitioning = false;
-
-  // シーン表示関数
+  // シーン表示関数：全シーン非表示→指定IDのみ表示
   function showScene(sceneId) {
     scenes.forEach(scene => scene.style.display = "none");
     document.getElementById(sceneId).style.display = "block";
   }
 
-  // 転換関数（setTimeoutを利用）
-  function transitionToScene(newSceneId) {
-    if (isTransitioning) return;  // すでに転換中なら何もしない
-    isTransitioning = true;
-    const overlay = document.getElementById("transition-overlay");
-    overlay.style.opacity = 1; // オーバーレイを不透明に
-    overlay.classList.add("fade-out");
-
-    // 1秒後にシーン切替（アニメーション時間と合わせる）
-    overlay.addEventListener("animationend", function handler() {
-      overlay.classList.remove("fade-out");
-      showScene(newSceneId);
-      isTransitioning = false;  // 転換終了
-      overlay.removeEventListener("animationend", handler);
-    });
-  }
-
   // 初期シーン：タイトル画面
   showScene("title-screen");
 
-  // タイトル画面タップでナレーションシーンへ
+  // タイトル画面タップでナレーションシーンへ（即時切替）
   titleScreen.addEventListener("click", () => {
-    transitionToScene("narration-screen");
+    showScene("narration-screen");
   });
 
-  // ★ ナレーションシーンの進行 ★
+  // ★ ナレーションシーンの進行
   const narrationTexts = [
     "君は目を覚ますと、自分の部屋にいた…",
     "部屋から出ようとするが、鍵がかかっている…",
@@ -54,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (narrationIndex < narrationTexts.length) {
       narrationContent.innerHTML = `<p>${narrationTexts[narrationIndex]}</p>`;
     } else {
-      transitionToScene("game-screen");
+      showScene("game-screen");
     }
   });
 
-  // ★ ゲーム進行部分 ★
+  // ★ ゲーム進行部分
   const hintBox = document.getElementById("hint-box");
   const bedArea = document.getElementById("bed-area");
   const casterArea = document.getElementById("caster-area");
