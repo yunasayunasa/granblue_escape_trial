@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // タイトル画面タップでナレーションシーンへ
   titleScreen.addEventListener("click", () => {
-    showScene("narration-screen");
-  });
+  transitionToScene("narration-screen");
+});
 
   // ★ ナレーションシーンの進行
   const narrationTexts = [
