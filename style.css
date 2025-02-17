@@ -57,10 +57,10 @@ body {
 }
 .narration-character {
   position: absolute;
-  bottom: -40%; /* 調整可 */
+  bottom: -40%; /* 必要に応じて調整 */
   left: 50%;
   transform: translateX(-50%);
-  height: 150%;
+  height: 150%;  /* キャラの大きさ */
   width: auto;
   z-index: 2;
 }
