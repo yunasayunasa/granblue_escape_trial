@@ -59,7 +59,7 @@ body {
 /* キャラクター（背景と会話フレームの間） */
 .narration-character {
   position: absolute;
-  bottom: -30%;  /* 調整可 */
+  bottom: -40%;  /* 調整可 */
   left: 50%;
   transform: translateX(-50%);
   height: 150%;
