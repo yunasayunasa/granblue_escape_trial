@@ -213,7 +213,7 @@ body {
   text-align: center;
 }
 
-/* 画面転換用オーバーレイ */
+/* 転換用オーバーレイ */
 #transition-overlay {
   position: fixed;
   top: 0;
@@ -223,7 +223,14 @@ body {
   background: black;
   opacity: 0;
   z-index: 3000;
-  pointer-events: none; /* ユーザーのクリックは通さない */
+  pointer-events: none;
+}
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* オーバーレイのフェードアウトアニメーション */
