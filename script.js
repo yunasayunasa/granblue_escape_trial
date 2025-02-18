@@ -100,45 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
       passwordInput.value = "";
     }
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("JavaScript 読み込み完了");
-
-  // シーン管理
-  const scenes = document.querySelectorAll('.scene');
-  function showScene(sceneId) {
-    scenes.forEach(scene => scene.style.display = "none");
-    document.getElementById(sceneId).style.display = "block";
-  }
-  showScene("title-screen");
-
-  // タイトル画面 → ナレーション画面
-  document.getElementById("title-screen").addEventListener("click", () => {
-    showScene("narration-screen");
-  });
-
-  // ナレーション進行
-  const narrationTexts = [
-    "君は目を覚ますと、自分の部屋にいた…",
-    "部屋から出ようとするが、鍵がかかっている…",
-    "どうやらこの鍵を開けないと出られないようだ。"
-  ];
-  let narrationIndex = 0;
-  document.getElementById("narration-screen").addEventListener("click", () => {
-    narrationIndex++;
-    if (narrationIndex < narrationTexts.length) {
-      document.getElementById("narration-content").innerHTML = `<p>${narrationTexts[narrationIndex]}</p>`;
-    } else {
-      showScene("game-screen");
-    }
-  });
-
-  // ゲーム内クリックイベント
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("JavaScript 読み込み完了");
-
-  // ゲーム画面にヒントボタンを追加
+  // ★ ヒントボタンの追加（JSで動的に追加）
   const hintButton = document.createElement("button");
   hintButton.textContent = "ヒント";
   hintButton.id = "hint-button";
@@ -148,13 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // ヒントテキストエリアを追加
   const hintText = document.createElement("p");
   hintText.id = "hint-text";
-  hintText.textContent = ""; // 初期状態では非表示
+  hintText.textContent = "";
   hintText.style.display = "none";
   document.getElementById("game-screen").appendChild(hintText);
 
-  // ヒントボタンのクリックでテキストを表示
+  // ヒントボタンクリックでテキスト表示
   hintButton.addEventListener("click", () => {
     hintText.textContent = "くはっ！数字は別のヒントの色と連動しているよ！";
-    hintText.style.display = "block"; // テキストを表示
+    hintText.style.display = "block";
   });
 });
