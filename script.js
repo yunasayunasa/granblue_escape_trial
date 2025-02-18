@@ -101,3 +101,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ヒントボタンを作成してページに追加
+const hintButton = document.createElement("button");
+hintButton.textContent = "ヒントを見る";
+hintButton.id = "hint-area";
+hintButton.classList.add("button");
+
+// ヒントボタンをページの適当な場所に追加（body の最後に追加）
+document.body.appendChild(hintButton);
+
+// ヒントのモーダルを作成
+const hintModal = document.createElement("div");
+hintModal.id = "hintModal";
+hintModal.classList.add("modal");
+hintModal.style.display = "none"; // 初期状態では非表示
+
+hintModal.innerHTML = `
+    <div class="modal-content">
+        <p id="hintBox">ここにヒントが表示されます</p>
+    </div>
+`;
+
+// モーダルを body に追加
+document.body.appendChild(hintModal);
+
+// ヒントボタンの動作
+hintButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hintModal.style.display = "flex"; // モーダルを表示
+    document.getElementById("hintBox").textContent = "ヒント内容: くはっ！数字は別のヒントの色と対応しているよ！";
+});
+
+// モーダル外をクリックしたら閉じる
+hintModal.addEventListener("click", (e) => {
+    if (e.target === hintModal) {
+        hintModal.style.display = "none";
+    }
+});
