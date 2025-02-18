@@ -135,28 +135,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ゲーム内クリックイベント
-  const hintModal = document.getElementById("hint-modal");
-  const hintBox = document.getElementById("hint-box");
-  const hintImage = document.getElementById("hint-image");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("JavaScript 読み込み完了");
 
-  // ヒントボタン（新規追加）
+  // ゲーム画面にヒントボタンを追加
   const hintButton = document.createElement("button");
   hintButton.textContent = "ヒント";
   hintButton.id = "hint-button";
   hintButton.classList.add("button");
   document.getElementById("game-screen").appendChild(hintButton);
 
-  // ヒントボタンクリックでモーダル表示
-  hintButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-    hintImage.src = "images/hint.jpg"; // ヒント画像
-    hintBox.textContent = "くはっ！数字は別のヒントの色と連動しているよ！";
-    hintModal.style.display = "flex";
-  });
+  // ヒントテキストエリアを追加
+  const hintText = document.createElement("p");
+  hintText.id = "hint-text";
+  hintText.textContent = ""; // 初期状態では非表示
+  hintText.style.display = "none";
+  document.getElementById("game-screen").appendChild(hintText);
 
-  // モーダルをクリックで閉じる
-  hintModal.addEventListener("click", () => {
-    hintModal.style.display = "none";
+  // ヒントボタンのクリックでテキストを表示
+  hintButton.addEventListener("click", () => {
+    hintText.textContent = "くはっ！数字は別のヒントの色と連動しているよ！";
+    hintText.style.display = "block"; // テキストを表示
   });
 });
-
