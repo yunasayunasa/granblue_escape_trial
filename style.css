@@ -213,3 +213,18 @@ body {
 #hint-button:hover {
   background: #ffdb4d;
 }
+
+/* ヒントテキスト */
+#hint-text {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+  display: none;
+}
