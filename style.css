@@ -228,3 +228,13 @@ body {
   text-align: center;
   display: none;
 }
+
+/* モーダル内のテキスト */
+.modal-content {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+}
