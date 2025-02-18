@@ -102,6 +102,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// CSS を JavaScript で追加
+const style = document.createElement("style");
+style.textContent = `
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #888;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .button {
+        padding: 10px;
+        margin: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+`;
+document.head.appendChild(style); // CSS を <head> に追加
+
 // ヒントボタンを作成してページに追加
 const hintButton = document.createElement("button");
 hintButton.textContent = "ヒントを見る";
@@ -130,7 +167,7 @@ document.body.appendChild(hintModal);
 hintButton.addEventListener("click", (e) => {
     e.stopPropagation();
     hintModal.style.display = "flex"; // モーダルを表示
-    document.getElementById("hintBox").textContent = "ヒント内容: くはっ！数字は別のヒントの色と対応しているよ！";
+    document.getElementById("hintBox").textContent = "ヒント内容: 机の中を調べてみよう！";
 });
 
 // モーダル外をクリックしたら閉じる
