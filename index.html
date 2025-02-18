@@ -32,24 +32,24 @@
       <img src="images/bg1.jpg" id="background" alt="背景">
       <img src="images/bg1_bed.png" id="bed" alt="ベッド">
       <img src="images/bg1_caster.png" id="caster" alt="キャスター">
+
+      <!-- ベッドとキャスターのタップ範囲 -->
       <div id="bed-area"></div>
       <div id="caster-area"></div>
-      <div id="hint-box">タップして調べよう</div>
+
+      <!-- 部屋から出るボタン -->
       <button id="exit-button">部屋から出る</button>
     </div>
-    
-    <!-- ヒントモーダル -->
-<div id="hint-modal" class="modal">
-  <div class="modal-content">
-    <img id="hint-image" src="" alt="ヒント">
-    <p id="hint-box">ここにヒントが表示されます</p>
-  </div>
-</div>
 
+    <!-- ベッドやキャスターのヒント用モーダル -->
     <div id="hint-modal" class="modal">
-      <img id="hint-image" src="" alt="ヒント">
+      <div class="modal-content">
+        <img id="hint-image" src="" alt="ヒント">
+        <p id="hint-text-in-modal">ここにヒントが表示されます</p>
+      </div>
     </div>
 
+    <!-- 4桁入力のモーダル -->
     <div id="exit-modal" class="modal">
       <div class="modal-content">
         <img id="exit-image" src="images/bg1_exit.jpg" alt="謎解き">
