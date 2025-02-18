@@ -10,7 +10,7 @@ body {
   font-family: sans-serif;
 }
 
-/* 共通：シーン全体 */
+/* シーン全体 */
 .scene {
   position: absolute;
   top: 0;
@@ -95,7 +95,7 @@ body {
   width: 100%;
   height: 100%;
 }
-#game-container #background {
+#background {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -105,6 +105,8 @@ body {
   object-fit: contain;
   z-index: 0;
 }
+
+/* アニメーション（お好みで） */
 @keyframes glow {
   0%   { filter: brightness(1); }
   100% { filter: brightness(1.5); }
@@ -132,6 +134,8 @@ body {
   animation: glow 2s infinite alternate;
   animation-delay: 1s;
 }
+
+/* タップ範囲 */
 #bed-area,
 #caster-area {
   position: absolute;
@@ -151,18 +155,8 @@ body {
   width: 20%;
   height: 10%;
 }
-#hint-box {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  z-index: 1000;
-}
+
+/* 部屋から出るボタン */
 #exit-button {
   position: absolute;
   top: 28%;
@@ -177,24 +171,24 @@ body {
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.7);
   z-index: 2000;
   justify-content: center;
   align-items: center;
 }
+.modal-content {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+}
 .modal img {
   max-width: 90%;
   max-height: 90%;
-}
-.modal .modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
 }
 
 /* ヒントボタン */
@@ -214,7 +208,7 @@ body {
   background: #ffdb4d;
 }
 
-/* ヒントテキスト */
+/* ヒントテキスト（画面上に一時表示） */
 #hint-text {
   position: absolute;
   bottom: 15%;
@@ -227,14 +221,4 @@ body {
   font-size: 1.2rem;
   text-align: center;
   display: none;
-}
-
-/* モーダル内のテキスト */
-.modal-content {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  text-align: center;
 }
