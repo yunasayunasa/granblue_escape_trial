@@ -102,3 +102,61 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("JavaScript 読み込み完了");
+
+  // シーン管理
+  const scenes = document.querySelectorAll('.scene');
+  function showScene(sceneId) {
+    scenes.forEach(scene => scene.style.display = "none");
+    document.getElementById(sceneId).style.display = "block";
+  }
+  showScene("title-screen");
+
+  // タイトル画面 → ナレーション画面
+  document.getElementById("title-screen").addEventListener("click", () => {
+    showScene("narration-screen");
+  });
+
+  // ナレーション進行
+  const narrationTexts = [
+    "君は目を覚ますと、自分の部屋にいた…",
+    "部屋から出ようとするが、鍵がかかっている…",
+    "どうやらこの鍵を開けないと出られないようだ。"
+  ];
+  let narrationIndex = 0;
+  document.getElementById("narration-screen").addEventListener("click", () => {
+    narrationIndex++;
+    if (narrationIndex < narrationTexts.length) {
+      document.getElementById("narration-content").innerHTML = `<p>${narrationTexts[narrationIndex]}</p>`;
+    } else {
+      showScene("game-screen");
+    }
+  });
+
+  // ゲーム内クリックイベント
+  const hintModal = document.getElementById("hint-modal");
+  const hintBox = document.getElementById("hint-box");
+  const hintImage = document.getElementById("hint-image");
+
+  // ヒントボタン（新規追加）
+  const hintButton = document.createElement("button");
+  hintButton.textContent = "ヒント";
+  hintButton.id = "hint-button";
+  hintButton.classList.add("button");
+  document.getElementById("game-screen").appendChild(hintButton);
+
+  // ヒントボタンクリックでモーダル表示
+  hintButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hintImage.src = "images/hint.jpg"; // ヒント画像
+    hintBox.textContent = "くはっ！数字は別のヒントの色と連動しているよ！";
+    hintModal.style.display = "flex";
+  });
+
+  // モーダルをクリックで閉じる
+  hintModal.addEventListener("click", () => {
+    hintModal.style.display = "none";
+  });
+});
+
