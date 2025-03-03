@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 4桁入力の判定
   passwordSubmit.addEventListener("click", () => {
     const input = passwordInput.value.trim();
-    const correctPassword = "4593";
+    const correctPassword = "5439";
     if (/^\d{4}$/.test(input)) {
       if (input === correctPassword) {
-        alert("鍵が開いた！\n本編は4/1実装予定！お楽しみに！");
+        alert("鍵が開いた！\n本番は4/1から！お楽しみに！");
         exitModal.style.display = "none";
       } else {
         alert("間違っているようだ...");
