@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ヒントボタンを押す → テキスト表示、3秒後に消える
   hintButton.addEventListener("click", () => {
-    hintText.textContent = "くはっ！数字は別のヒントの色と連動しているよ！";
+    hintText.textContent = "くはっ！数字と色はそれぞれ連動しているよ！";
     hintText.style.display = "block";
 
     // 3秒後に自動で消える
