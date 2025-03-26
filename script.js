@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 4桁入力の判定
   passwordSubmit.addEventListener("click", () => {
     const input = passwordInput.value.trim();
-    const correctPassword = "5439";
+    const correctPassword = "4593";
     if (/^\d{4}$/.test(input)) {
       if (input === correctPassword) {
-        alert("鍵が開いた！\n本番は4/1から！お楽しみに！");
+        alert("鍵が開いた！\n扉に文字が浮かび上がった...\n【リドルで検索せよ】");
         exitModal.style.display = "none";
       } else {
         alert("間違っているようだ...");
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ヒントボタンを押す → テキスト表示、3秒後に消える
   hintButton.addEventListener("click", () => {
-    hintText.textContent = "くはっ！数字と色はそれぞれ連動しているよ！";
+    hintText.textContent = "くはっ！ヒントの数字と色はそれぞれ別のヒントと連動しているよ！";
     hintText.style.display = "block";
 
     // 3秒後に自動で消える
